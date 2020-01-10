@@ -48,9 +48,7 @@ $(document).ready(function() {
 		console.log(totalExpenses);
 	};
 
-	addExpenses();
-
-	// All all income transactions
+	// Add all income transactions
 
 	const addIncomes = () => {
 		incomes.forEach(income => {
@@ -59,8 +57,6 @@ $(document).ready(function() {
 		console.log(totalIncomes);
 	};
 
-	addIncomes();
-
 	// Calculate total savings
 
 	const calcSavings = () => {
@@ -68,7 +64,24 @@ $(document).ready(function() {
 		console.log(totalSavings);
 	};
 
-	calcSavings();
+	// Create new entry
+	$('button').on('click', () => {
+		let entry = {
+			date: $('#inputDate').val(),
+			description: $('#inputDesc').val(),
+			amount: $('#inputAmount').val()
+		};
 
-	// Store new transactions
+		let entryType = $('#inputType').val();
+
+		if (entryType === 'Income') {
+			incomes.push(entry);
+			console.log(incomes);
+		} else if (entryType === 'Expense') {
+			expenses.push(entry);
+			console.log(expenses);
+		}
+
+		console.log(entry);
+	});
 });

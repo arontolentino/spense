@@ -24,20 +24,15 @@
 				<div class="input">
 					<div class="wrapper">
 						<div class="inputContainer">
-							<input
-								placeholder="Date"
-								class="textbox-n"
-								type="text"
-								id="date"
-							/>
+							<input placeholder="Date" type="date" id="inputDate" />
 						</div>
 
 						<div class="inputContainer">
-							<input type="text" placeholder="Description" />
+							<input type="text" placeholder="Description" id="inputDesc" />
 						</div>
 
 						<div class="inputContainer">
-							<select>
+							<select id="inputType">
 								<option disabled selected>Transaction Type</option>
 								<option>Income</option>
 								<option>Expense</option>
@@ -45,7 +40,10 @@
 						</div>
 
 						<div class="inputContainer">
-							<input type="number" placeholder="Amount" />
+							<input type="number" placeholder="Amount" id="inputAmount" />
+						</div>
+						<div class="inputContainer">
+							<button>Add</button>
 						</div>
 					</div>
 				</div>
@@ -95,6 +93,7 @@
 				</div>
 			</div>
 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="app.js"></script>
 	</body>
 </html>
