@@ -81,7 +81,7 @@ select {
 	padding-top: 77px;
 }
 
-.income,
+.incomes,
 .expenses {
 	width: 405px;
 }
@@ -158,7 +158,7 @@ select {
 	text-align: right;
 }
 
-.income .amount {
+.incomes .amount {
 	color: #3827b4;
 }
 

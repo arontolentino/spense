@@ -1,34 +1,26 @@
 $(document).ready(function() {
+	let expenses = [];
+	let incomes = [];
+
 	let totalSavings = 0;
 	let totalExpenses = 0;
 	let totalIncomes = 0;
 
-	let expenses = [];
-
-	let incomes = [];
-
 	// Add all expense transactions
-
-	const addExpenses = () => {
-		expenses.forEach(expense => {
-			totalExpenses += expense.amount;
-		});
+	const addExpenses = amount => {
+		totalExpenses += amount;
 
 		$('.totalExpenses p').text(`$${totalExpenses.toFixed(2)}`);
 	};
 
 	// Add all income transactions
-
-	const addIncomes = () => {
-		incomes.forEach(income => {
-			totalIncomes += income.amount;
-		});
+	const addIncomes = amount => {
+		totalIncomes += amount;
 
 		$('.totalIncome p').text(`$${totalIncomes.toFixed(2)}`);
 	};
 
 	// Calculate total savings
-
 	const calcSavings = () => {
 		totalSavings = totalIncomes - totalExpenses;
 		$('.totalSavings p').text(`$${totalSavings.toFixed(2)}`);
@@ -45,14 +37,14 @@ $(document).ready(function() {
 
 		let entryType = $('#inputType').val();
 
-		console.log(entry);
-
 		if (entryType === 'Income') {
 			incomes.push(entry);
-			addIncomes();
+			listEntry('incomes', entry);
+			addIncomes(entry.amount);
 		} else if (entryType === 'Expense') {
 			expenses.push(entry);
-			addExpenses();
+			listEntry('expenses', entry);
+			addExpenses(entry.amount);
 		}
 
 		calcSavings();
@@ -63,4 +55,19 @@ $(document).ready(function() {
 		$('#inputAmount').val('');
 		$('#inputType').val('Transaction Type');
 	});
+
+	// Append entry to HTML
+	const listEntry = (list, entry) => {
+		$(`.${list} ul`).append(
+			` <li>
+          <div class="icon">icon</div>
+          <div class="description">
+            <div class="date">${entry.date}</div>
+            <div class="name">${entry.description}</div>
+          </div>
+          <div class="amount">$${entry.amount.toFixed(2)}</div>
+        </li>
+      `
+		);
+	};
 });
