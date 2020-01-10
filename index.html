@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./stylesheet.css" />
+
+		<title>Spense - Easy Cashflow Tracking</title>
+	</head>
+	<body>
+		<div id="app">
+			<div class="header">
+				<div class="totalSavings">
+					<h2>Total Savings</h2>
+					<p>$7,467.25</p>
+				</div>
+
+				<div class="input">
+					<div class="wrapper">
+						<div class="inputContainer">
+							<input
+								placeholder="Date"
+								class="textbox-n"
+								type="text"
+								id="date"
+							/>
+						</div>
+
+						<div class="inputContainer">
+							<input type="text" placeholder="Description" />
+						</div>
+
+						<div class="inputContainer">
+							<select>
+								<option disabled selected>Transaction Type</option>
+								<option>Income</option>
+								<option>Expense</option>
+							</select>
+						</div>
+
+						<div class="inputContainer">
+							<input type="number" placeholder="Amount" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="transactions">
+				<div class="wrapper">
+					<div class="income">
+						<div class="totalIncome">
+							<h2>Total Income</h2>
+							<p>$9,148.20</p>
+						</div>
+
+						<div class="transactionList">
+							<ul>
+								<li>
+									<div class="icon">icon</div>
+									<div class="description">
+										<div class="date">October 23, 2019</div>
+										<div class="name">Description</div>
+									</div>
+									<div class="amount">$18.90</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="expenses">
+						<div class="totalExpenses">
+							<h2>Total Expenses</h2>
+							<p>$1,680.96</p>
+						</div>
+
+						<div class="transactionList">
+							<ul>
+								<li>
+									<div class="icon">icon</div>
+									<div class="description">
+										<div class="date">October 23, 2019</div>
+										<div class="name">Description</div>
+									</div>
+									<div class="amount">-$18.90</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="app.js"></script>
+	</body>
+</html>
