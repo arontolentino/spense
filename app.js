@@ -56,5 +56,11 @@ $(document).ready(function() {
 		}
 
 		calcSavings();
+
+		// Reset values after successfully submitting
+		$('#inputDate').val('');
+		$('#inputDesc').val('');
+		$('#inputAmount').val('');
+		$('#inputType').val('Transaction Type');
 	});
 });
