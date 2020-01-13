@@ -6,30 +6,9 @@ $(document).ready(function() {
 		totalExpense: 0,
 		totalIncome: 0,
 
-		// Add new expense entry to array and update UI
-		addExpense: function(amount) {
-			this.totalExpense += amount;
-
-			$('.totalExpenses p').text(`$${this.totalExpense.toFixed(2)}`);
-		},
-
-		// Add new income entry to array and update UI
-		addIncome: function(amount) {
-			this.totalIncome = this.totalIncome + amount;
-
-			$('.totalIncome p').text(`$${this.totalIncome.toFixed(2)}`);
-		},
-
-		// Calculate total savings and update UI
-		calculateSavings: function() {
-			this.totalSavings = this.totalIncome - this.totalExpense;
-
-			$('.totalSavings p').text(`$${this.totalSavings.toFixed(2)}`);
-		},
-
 		createNewEntry: function() {
 			let entry = {
-				date: $('#inputDate').val(),
+				date: moment($('#inputDate').val()).format('MMMM D,  YYYY'),
 				description: $('#inputDesc').val(),
 				amount: parseInt($('#inputAmount').val())
 			};
@@ -48,6 +27,31 @@ $(document).ready(function() {
 
 			app.calculateSavings();
 			app.resetInput();
+		},
+
+		// Add new expense entry to array and update UI
+		addExpense: function(amount) {
+			this.totalExpense += amount;
+
+			$('.expenseInit').remove();
+
+			$('.totalExpenses p').text(`$${this.totalExpense.toFixed(2)}`);
+		},
+
+		// Add new income entry to array and update UI
+		addIncome: function(amount) {
+			this.totalIncome = this.totalIncome + amount;
+
+			$('.incomeInit').remove();
+
+			$('.totalIncome p').text(`$${this.totalIncome.toFixed(2)}`);
+		},
+
+		// Calculate total savings and update UI
+		calculateSavings: function() {
+			this.totalSavings = this.totalIncome - this.totalExpense;
+
+			$('.totalSavings p').text(`$${this.totalSavings.toFixed(2)}`);
 		},
 
 		listNewEntry: function(list, entry) {
